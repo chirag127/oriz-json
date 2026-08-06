@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro'
+import JsonStudio from '../components/JsonStudio.tsx'
+import '../styles/studio.css'
+
+const features = [
+  'Beautify',
+  'Minify',
+  'Validate',
+  'Tree viewer',
+  'JSONPath',
+  'JSON ↔ CSV',
+  'Diff',
+  'Sort keys',
+]
+---
+
+<Layout>
+  <section class="hero">
+    <svg class="tree-mark" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+      <path
+        d="M100 190 L100 110"
+        stroke="var(--tree-bark)"
+        stroke-width="6"
+        stroke-linecap="round"
+        stroke-dasharray="400"
+      />
+      <path
+        d="M100 130 C100 100 60 100 45 70"
+        stroke="var(--tree-canopy)"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-dasharray="400"
+      />
+      <path
+        d="M100 130 C100 95 140 95 158 62"
+        stroke="var(--tree-canopy)"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-dasharray="400"
+      />
+      <path
+        d="M100 150 C100 130 78 128 66 108"
+        stroke="var(--tree-leaf)"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-dasharray="400"
+      />
+      <path
+        d="M100 150 C100 130 122 128 134 108"
+        stroke="var(--tree-leaf)"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-dasharray="400"
+      />
+      <circle cx="45" cy="70" r="9" fill="var(--tree-sap)" />
+      <circle cx="158" cy="62" r="9" fill="var(--tree-canopy)" />
+      <circle cx="66" cy="108" r="6" fill="var(--tree-leaf)" />
+      <circle cx="134" cy="108" r="6" fill="var(--tree-sap)" />
+    </svg>
+
+    <span class="hero__eyebrow">json.oriz.in · client-side</span>
+    <h1>Grow a <span class="accent">tree</span> from your JSON.</h1>
+    <p class="hero__sub">
+      Format, validate, explore, query, diff, and convert JSON — every byte stays in your browser.
+      No upload. No signup. No server ever sees your data.
+    </p>
+    <div class="hero__features">
+      {features.map((f) => <span>{f}</span>)}
+    </div>
+    <div class="hero__privacy">100% client-side · no upload · MIT-licensed</div>
+  </section>
+
+  <JsonStudio client:load />
+
+  <section class="how">
+    <h2>Everything runs in your tab</h2>
+    <div class="how-grid">
+      <article class="how-card">
+        <h3>Private by design</h3>
+        <p>Parsing, diffing, and conversion use the browser's native engine. Nothing is transmitted.</p>
+      </article>
+      <article class="how-card">
+        <h3>Fast first paint</h3>
+        <p>Static HTML + tiny React island. Heavy bits (JSONPath) load only when you use them.</p>
+      </article>
+      <article class="how-card">
+        <h3>Deep tree view</h3>
+        <p>Organic branch connectors, collapse-all, and a per-node expand for large payloads.</p>
+      </article>
+      <article class="how-card">
+        <h3>Optional AI</h3>
+        <p>Explain a structure, infer a schema, or generate sample JSON. Falls back gracefully.</p>
+      </article>
+    </div>
+  </section>
+</Layout>
