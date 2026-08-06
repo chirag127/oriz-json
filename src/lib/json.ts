@@ -14,6 +14,8 @@ export function parseJson(text: string): ParseResult {
     return { ok: true, value: JSON.parse(text) }
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e)
+    const lc = msg.match(/line (\d+) column (\d+)/i)
+    if (lc) return { ok: false, error: msg, line: Number(lc[1]), col: Number(lc[2]) }
     const pos = posFromMessage(msg)
     if (pos != null) {
       const { line, col } = lineColFromPos(text, pos)
