@@ -16,18 +16,22 @@ export function parseJson(text: string): ParseResult {
     const msg = e instanceof Error ? e.message : String(e)
     const lc = msg.match(/line (\d+) column (\d+)/i)
     if (lc) return { ok: false, error: msg, line: Number(lc[1]), col: Number(lc[2]) }
-    const pos = posFromMessage(msg)
-    if (pos != null) {
-      const { line, col } = lineColFromPos(text, pos)
-      return { ok: false, error: msg, line, col }
-    }
-    return { ok: false, error: msg }
+    const pos = posFromMessage(msg) ?? findErrorPos(text)
+    const { line, col } = lineColFromPos(text, pos)
+    return { ok: false, error: msg, line, col }
   }
 }
 
 function posFromMessage(msg: string): number | null {
   const m = msg.match(/position (\d+)/i)
   return m ? Number(m[1]) : null
+}
+
+/** Best-effort error position when the engine message omits one. */
+function findErrorPos(text: string): number {
+  const m = text.match(/[,:]\s*(?=[,}\]])|,(?=\s*[}\]])/)
+  if (m && m.index != null) return m.index + m[0].length
+  return Math.max(0, text.replace(/\s+$/, '').length - 1)
 }
 
 export function lineColFromPos(text: string, pos: number): { line: number; col: number } {
