@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About oriz-json — JSON power tool</title>
+<meta name="description" content="About oriz-json: a 100% client-side JSON power tool (format, tree view, JSONPath, JSON/CSV, diff). This is the project info page — the live app is at json.oriz.in." />
+<link rel="canonical" href="https://chirag127.github.io/oriz-json/" />
+<style>
+  :root{--bg:#0f1115;--panel:#171a21;--fg:#e7e9ee;--muted:#9aa3b2;--accent:#5eead4;--border:#262b36;--link:#7dd3fc}
+  @media (prefers-color-scheme:light){:root{--bg:#f7f8fa;--panel:#fff;--fg:#1a1d24;--muted:#5b6472;--accent:#0d9488;--border:#e2e6ec;--link:#0369a1}}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:0}
+  .wrap{max-width:760px;margin:0 auto;padding:3rem 1.25rem 4rem}
+  .badge{display:inline-block;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:.25rem .7rem;margin-bottom:1rem}
+  h1{font-size:2rem;margin:.2rem 0 .5rem;line-height:1.2}
+  h1 .a{color:var(--accent)}
+  .lede{color:var(--muted);font-size:1.1rem;margin:.25rem 0 1.5rem}
+  .cta{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.5rem 0}
+  .btn{display:inline-block;text-decoration:none;font-weight:600;padding:.6rem 1rem;border-radius:.6rem;border:1px solid var(--border)}
+  .btn.primary{background:var(--accent);color:#04211d;border-color:transparent}
+  .btn.ghost{color:var(--fg)}
+  a{color:var(--link)}
+  section{background:var(--panel);border:1px solid var(--border);border-radius:.8rem;padding:1.25rem 1.4rem;margin:1.2rem 0}
+  h2{font-size:1.15rem;margin:0 0 .6rem}
+  ul{margin:.4rem 0;padding-left:1.2rem}
+  li{margin:.3rem 0}
+  li b{color:var(--fg)}
+  .note{color:var(--muted);font-size:.9rem}
+  footer{color:var(--muted);font-size:.85rem;margin-top:2rem;text-align:center}
+  code{background:var(--bg);border:1px solid var(--border);border-radius:.3rem;padding:.05rem .35rem;font-size:.85em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="badge">Project info · not the app</span>
+  <h1>oriz-<span class="a">json</span></h1>
+  <p class="lede">A JSON power tool — format, tree view, JSONPath, JSON&harr;CSV, diff — that runs entirely in your browser.</p>
+
+  <div class="cta">
+    <a class="btn primary" href="https://json.oriz.in">Open the live app &rarr;</a>
+    <a class="btn ghost" href="https://github.com/chirag127/oriz-json">Source on GitHub</a>
+    <a class="btn ghost" href="https://json.oriz.in/llms.txt">llms.txt</a>
+  </div>
+  <p class="note">This page is <b>about</b> oriz-json. The actual tool lives at <a href="https://json.oriz.in">json.oriz.in</a>.</p>
+
+  <section>
+    <h2>What it is</h2>
+    <p>oriz-json is a client-side JSON workbench: paste, drop a file, or load a sample, then format, validate, explore, query, diff, and convert — with an optional AI assist. Nothing is uploaded; everything runs in the tab.</p>
+  </section>
+
+  <section>
+    <h2>Key features</h2>
+    <ul>
+      <li><b>Format / minify / validate</b> — 2/4/tab indent, minify, live line:col errors + byte/node/key/depth stats.</li>
+      <li><b>Tree viewer</b> — collapsible tree, expand/collapse-all, per-node expand, syntax-colored values.</li>
+      <li><b>JSONPath query</b> — run <code>$..author</code>-style expressions via jsonpath-plus.</li>
+      <li><b>JSON &harr; CSV</b> — array-of-objects to CSV (union columns, RFC quoting) and CSV to JSON (typed coercion).</li>
+      <li><b>Diff</b> — deep structural diff with add/remove/change summary and per-path detail.</li>
+      <li><b>Sort keys</b> — recursive A&rarr;Z / Z&rarr;A.</li>
+      <li><b>AI assist (optional)</b> — explain structure, infer a JSON Schema, or generate sample JSON.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Tech</h2>
+    <ul>
+      <li>Client-only <b>Astro</b> static site + a small React island; Tailwind v4.</li>
+      <li>Optional <b>g4f AI</b> via <a href="https://github.com/chirag127/oz-ai"><code>@chirag127/oz-ai</code></a> — no API key.</li>
+      <li><b>PWA-installable</b>; heavy libs dynamically imported per feature.</li>
+      <li><b>100% in-browser</b> — no upload, no signup, free, MIT-licensed.</li>
+    </ul>
+  </section>
+
+  <footer>
+    MIT &copy; 2026 Chirag Singhal ·
+    <a href="https://json.oriz.in">Live app</a> ·
+    <a href="https://github.com/chirag127/oriz-json">Source</a> ·
+    <a href="https://json.oriz.in/llms.txt">llms.txt</a>
+  </footer>
+</div>
+</body>
+</html>

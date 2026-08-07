@@ -1,0 +1,68 @@
+# oriz-json — JSON power tool
+
+Live app: https://json.oriz.in
+Source: https://github.com/chirag127/oriz-json
+License: MIT (c) 2026 Chirag Singhal
+
+## Summary
+
+oriz-json is a JSON power tool that runs entirely in your browser. Format, minify, validate, explore as a tree, query with JSONPath, convert JSON to/from CSV, diff two JSONs, and sort keys. 100% client-side — no upload, no signup, no server. Your JSON never leaves the tab.
+
+## Hero
+
+Grow a tree from your JSON.
+
+Format, validate, explore, query, diff, and convert JSON — every byte stays in your browser. No upload. No signup. No server ever sees your data.
+
+Tags: Beautify, Minify, Validate, Tree viewer, JSONPath, JSON to CSV, Diff, Sort keys. 100% client-side, no upload, MIT-licensed.
+
+## Tools
+
+### Format / minify / validate
+Beautify JSON with 2-space, 4-space, or tab indent. Minify to a single line. Live validity check reports the first syntax error with line:column location, plus stats: byte size, node count, key count, and max depth.
+
+### Tree viewer
+Collapsible tree of the parsed JSON with organic branch connectors, expand-all / collapse-all, syntax-colored values, and a per-node expand toggle for large payloads.
+
+### JSONPath query
+Run jsonpath-plus expressions against the parsed document. Examples: `$..author` (all author values at any depth), `$.store.book[*].author` (authors of every book). The jsonpath-plus library is lazy-loaded on first use to keep first paint instant.
+
+### JSON to CSV / CSV to JSON
+Convert an array of objects to CSV using union columns and RFC-compliant quoting. Convert CSV back to JSON with typed coercion of numbers and booleans.
+
+### Diff
+Deep structural diff of two JSON documents. Shows an add / remove / change summary and per-path detail of what differs between the left and right inputs.
+
+### Sort keys
+Recursively sort object keys A->Z or Z->A across the whole document.
+
+### AI assist (optional)
+Three modes, powered by @chirag127/oz-ai (g4f, no API key required):
+- Explain structure: names the top-level shape, key fields, and their types as concise bullet points.
+- Infer schema: outputs a JSON Schema (draft-07) for the given JSON.
+- Generate sample: produces realistic sample JSON from a plain-language description, e.g. "a blog post with author, tags, comments".
+The AI feature is the only optional network call; you trigger it explicitly. It degrades gracefully — all core tools work offline.
+
+## How it works
+
+Everything runs in your tab.
+
+- Private by design: parsing, diffing, querying, and conversion use the browser's native JSON engine and local JS. Nothing is transmitted.
+- Fast first paint: static HTML plus a tiny React island. Heavy bits (JSONPath) load only when you use them.
+- Deep tree view: organic branch connectors, collapse-all, and a per-node expand for large payloads.
+- Optional AI: explain a structure, infer a schema, or generate sample JSON. Falls back gracefully.
+
+## Privacy
+
+All parsing, diffing, querying, and conversion use the browser's native JSON engine and local JavaScript. Nothing is transmitted. The only network call is the optional AI feature, which you trigger explicitly.
+
+## Tech
+
+Astro (static output) with React 19 islands and Tailwind v4. Uses shared @chirag127/oz-* packages (oz-ai, oz-chrome, oz-file, oz-tokens-base). Heavy libraries are dynamically imported only when their feature is used, keeping first paint instant. PWA-installable. AI via g4f (@chirag127/oz-ai), no key.
+
+## Links
+
+- Live app: https://json.oriz.in
+- Info page: https://chirag127.github.io/oriz-json/
+- Source: https://github.com/chirag127/oriz-json
+- llms.txt: https://json.oriz.in/llms.txt

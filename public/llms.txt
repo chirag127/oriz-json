@@ -1,0 +1,21 @@
+# oriz-json
+
+> JSON power tool that runs 100% in the browser — format, minify, validate, tree view, JSONPath query, JSON↔CSV, deep diff, sort keys, optional g4f AI. No upload, no signup, no server.
+
+Live app: https://json.oriz.in
+Full text for LLM ingestion: https://json.oriz.in/llms-full.txt
+
+## Tools
+
+- [Format / minify / validate](https://json.oriz.in): beautify with 2/4/tab indent, minify, live validity with line:col error location + byte/node/key/depth stats.
+- [Tree viewer](https://json.oriz.in): collapsible tree with organic branch connectors, expand/collapse-all, syntax-colored values, per-node expand for large payloads.
+- [JSONPath query](https://json.oriz.in): run jsonpath-plus expressions like `$..author` or `$.store.book[*].author`, lazy-loaded on first use.
+- [JSON to CSV / CSV to JSON](https://json.oriz.in): array-of-objects -> CSV (union columns, RFC quoting) and CSV -> JSON (typed coercion).
+- [Diff](https://json.oriz.in): deep structural diff of two JSONs with add/remove/change summary and per-path detail.
+- [Sort keys](https://json.oriz.in): recursive A->Z / Z->A key sort.
+- [AI assist (optional)](https://json.oriz.in): explain a structure, infer a JSON Schema (draft-07), or generate sample JSON via @chirag127/oz-ai (g4f, no key). Degrades gracefully; core tools work offline.
+
+## About
+
+- [Info page](https://chirag127.github.io/oriz-json/): what oriz-json is, features, tech, links.
+- [Source](https://github.com/chirag127/oriz-json): MIT-licensed, Astro static + React island + Tailwind v4.
